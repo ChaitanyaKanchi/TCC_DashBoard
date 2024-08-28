@@ -98,7 +98,11 @@ registrations_count = users_df.groupby('interval').size().reset_index(name='coun
 uploads_count = recordings_df.groupby('interval').size().reset_index(name='count')
 
 
-
+col1,col2,col3 = st.columns([3,1,3])
+with col2:
+    image_1 = st.image("https://raw.githubusercontent.com/Dharanish111/TCC_Dashboard/main/1.png")
+    
+st.title("Files 📂")
 # Display results
 with st.expander("Total Files"):
     st.dataframe(recordings_data)

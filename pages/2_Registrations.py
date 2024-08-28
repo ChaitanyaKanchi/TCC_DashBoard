@@ -75,14 +75,15 @@ else:  # Monthly
 
 registrations_count = users_df.groupby('interval').size().reset_index(name='count')
 
+col1,col2,col3 = st.columns([3,1,3])
+with col2:
+    image_1 = st.image("https://raw.githubusercontent.com/Dharanish111/TCC_Dashboard/main/1.png")
 
 # Display the data table
-st.subheader(f'Registrations Data ({interval})')
+st.header(f'Registrations Data ✍🏾 ({interval})')
 with st.expander("All Registrations"):
     st.dataframe(registrations_count)
 
 # Plot the number of registrations
 fig = px.bar(registrations_count, x='interval', y='count', title=f'Number of Registrations ({interval})')
 st.plotly_chart(fig)
-
-

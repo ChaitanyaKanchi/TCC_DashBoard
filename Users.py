@@ -9,7 +9,7 @@ import time
 
 st.set_page_config(
     page_title="TCC_Dashboard",
-    page_icon="https://github.com/Dharanish111/TCC_Dashboard/blob/main/1.png?raw=true",
+    page_icon="https://raw.githubusercontent.com/Dharanish111/TCC_Dashboard/main/1.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -66,16 +66,14 @@ else:
 total_users = len(df)
 st.sidebar.write(f"Total Users: {total_users}")
 
-# Create columns
-col1, col2 , col3 = st.columns([1,2,1], vertical_alignment ="center")  # Adjust the ratios to fit your design
-
-# Place title in the first column
+col1,col2,col3 =st.columns([3,1,3])
 with col2:
-    st.title('Telugu Corpus Collection Dashboard')
+    st.image("https://github.com/Dharanish111/TCC_Dashboard/blob/main/1.png?raw=true",width = 195)
 
-# Place image in the second column
-with col3:
-    st.image("https://github.com/Dharanish111/TCC_Dashboard/blob/main/1.png?raw=true",width = 125)
+
+col1,col2,col3 =st.columns([1,3,1])
+with col2:
+    st.title("Telugu Corpus Collection App Dashboard")
 
 with st.expander("See Total Data"):
     st.dataframe(df)

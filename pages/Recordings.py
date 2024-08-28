@@ -58,7 +58,15 @@ else:
     st.error("The '$createdAt' field is missing from the data.")
     st.stop()
 
-st.subheader("Total Recordings")
+
+
+col1,col2,col3 = st.columns([3,1,3])
+with col2:
+    image_1 = st.image("https://raw.githubusercontent.com/Dharanish111/TCC_Dashboard/main/1.png")
+    
+
+
+st.header("Total Recordings ⏺️")
 st.dataframe(df)
 
 # Sidebar filters
@@ -84,8 +92,7 @@ if len(date_range) == 2:  # Ensure two dates are selected
         (filtered_df['$createdAt'].dt.date <= end_date)
     ]
 
+
     # Display the filtered data
     st.subheader(f"Filtered Data from {start_date} to {end_date}")
     st.dataframe(filtered_df)
-
-
