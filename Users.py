@@ -9,7 +9,7 @@ import time
 
 st.set_page_config(
     page_title="TCC_Dashboard",
-    page_icon="https://github.com/Dharanish111/TCC_Dashboard/blob/main/1.png?raw=true",
+    page_icon="https://raw.githubusercontent.com/Dharanish111/TCC_Dashboard/main/Pics/1.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
