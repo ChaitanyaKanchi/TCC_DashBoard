@@ -2,3 +2,6 @@ streamlit
 appwrite
 pandas
 datetime
+plotly
+requests
+toml
