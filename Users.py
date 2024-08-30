@@ -75,7 +75,7 @@ with col2:
 
 # Place image in the second column
 with col3:
-    st.image("https://github.com/ChaitanyaKanchi/TCC_DashBoard/blob/main/images/image.png",width = 125)
+    st.image("https://raw.githubusercontent.com/Dharanish111/TCC_Dashboard/main/Pics/1.png",width = 125)
 
 with st.expander("See Total Data"):
     st.dataframe(df)
