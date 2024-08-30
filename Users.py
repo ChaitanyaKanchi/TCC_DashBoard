@@ -9,7 +9,7 @@ import time
 
 st.set_page_config(
     page_title="TCC_Dashboard",
-    page_icon="https://raw.githubusercontent.com/Dharanish111/TCC_Dashboard/main/1.png",
+    page_icon="https://github.com/Dharanish111/TCC_Dashboard/blob/main/1.png?raw=true",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -66,14 +66,16 @@ else:
 total_users = len(df)
 st.sidebar.write(f"Total Users: {total_users}")
 
-col1,col2,col3 =st.columns([3,1,3])
-with col2:
-    st.image("https://github.com/Dharanish111/TCC_Dashboard/blob/main/1.png?raw=true",width = 195)
+# Create columns
+col1, col2 , col3 = st.columns([1,2,1], vertical_alignment ="center")  # Adjust the ratios to fit your design
 
-
-col1,col2,col3 =st.columns([1,3,1])
+# Place title in the first column
 with col2:
-    st.title("Telugu Corpus Collection App Dashboard")
+    st.title('Telugu Corpus Collection Dashboard')
+
+# Place image in the second column
+with col3:
+    st.image("https://github.com/Dharanish111/TCC_Dashboard/blob/main/1.png?raw=true",width = 125)
 
 with st.expander("See Total Data"):
     st.dataframe(df)
@@ -121,15 +123,24 @@ if phone_number or email or (len(date_range) == 2):
             (filtered_df['registration'].dt.date <= end_date)
         ]
 
+        if not filtered_df.empty:
+            st.subheader(f'Filtered User Data from {start_date} to {end_date}')
+        else:
+            st.subheader('No User Data for the selected date range')
+
     if not filtered_df.empty:
-        st.subheader(f'Filtered User Data from {start_date} to {end_date}')
+        st.header("Filtered Data")
         st.dataframe(filtered_df)
 
-        fig = px.histogram(filtered_df, x='registration', title='User Registrations per Day')
-        st.plotly_chart(fig)
+        # Only show the histogram if not filtering by phone number or email
+        if not phone_number and not email:
+            fig = px.histogram(filtered_df, x='registration', title='User Registrations per Day')
+            st.plotly_chart(fig)
+
         filter_total_users = len(filtered_df)
         st.sidebar.write(f"Total Users after using filter: {filter_total_users}")
     else:
         st.write("No data available for the selected filters.")
 else:
     st.write("No filters applied. Please use the sidebar to filter data.")
+
